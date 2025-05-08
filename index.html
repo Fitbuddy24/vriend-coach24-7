@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jouw Coach Buddy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <div class="max-w-4xl mx-auto p-6">
+    <!-- Language Switch -->
+    <div class="flex justify-end text-sm space-x-4 mb-4">
+      <button onclick="switchLang('nl')" class="underline">NL</button>
+      <button onclick="switchLang('en')" class="underline">EN</button>
+    </div>
+
+    <!-- Header -->
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold" id="title">Jouw Vriend-Coach</h1>
+      <p class="text-lg mt-2" id="subtitle">Altijd bereikbaar voor sport, voeding & mindset</p>
+    </header>
+
+    <!-- Diensten -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4" id="services-title">Wat we bieden</h2>
+      <ul class="list-disc pl-6 space-y-2 text-lg" id="services-list">
+        <li>Voedingsadvies op maat</li>
+        <li>Hardloopschema’s & motivatie</li>
+        <li>Gym begeleiding & spieropbouw</li>
+        <li>Coaching voor voetbal, tennis & padel</li>
+        <li>Mentale ondersteuning & check-ins</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="bg-gray-100 p-6 rounded-lg">
+      <h2 class="text-xl font-semibold mb-2" id="contact-title">Contact</h2>
+      <p id="contact-text">Stuur ons een WhatsApp-bericht of plan een intake via e-mail!</p>
+      <div class="mt-4 space-x-4">
+        <a href="https://wa.me/31612345678" class="bg-green-500 text-white px-4 py-2 rounded">WhatsApp</a>
+        <a href="mailto:info@coachbuddy.com" class="bg-blue-500 text-white px-4 py-2 rounded">E-mail</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const translations = {
+      nl: {
+        title: "Jouw Vriend-Coach",
+        subtitle: "Altijd bereikbaar voor sport, voeding & mindset",
+        "services-title": "Wat we bieden",
+        "services-list": `
+          <li>Voedingsadvies op maat</li>
+          <li>Hardloopschema’s & motivatie</li>
+          <li>Gym begeleiding & spieropbouw</li>
+          <li>Coaching voor voetbal, tennis & padel</li>
+          <li>Mentale ondersteuning & check-ins</li>
+        `,
+        "contact-title": "Contact",
+        "contact-text": "Stuur ons een WhatsApp-bericht of plan een intake via e-mail!",
+      },
+      en: {
+        title: "Your Coach Buddy",
+        subtitle: "Always available for sports, nutrition & mindset",
+        "services-title": "What we offer",
+        "services-list": `
+          <li>Personalized nutrition advice</li>
+          <li>Running plans & motivation</li>
+          <li>Gym coaching & muscle building</li>
+          <li>Coaching for football, tennis & padel</li>
+          <li>Mental support & check-ins</li>
+        `,
+        "contact-title": "Contact",
+        "contact-text": "Send us a WhatsApp message or plan an intake by email!",
+      }
+    };
+
+    function switchLang(lang) {
+      const t = translations[lang];
+      for (let key in t) {
+        const el = document.getElementById(key);
+        if (el) {
+          if (key === "services-list") {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
